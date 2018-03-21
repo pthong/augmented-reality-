@@ -33,10 +33,6 @@
     </style>
 </head>
 <body>
-Click to begin!
-<div id="welcomeBtn">
-Click to begin!
-</div>
 <script type="text/javascript">
     console.log('hoi');
     
@@ -58,28 +54,12 @@ Click to begin!
     };
 
     document.body.appendChild(video);
-
-    document.getElementById('video').addEventListener('click', function() {
-        document.body.webkitRequestFullscreen();
-
-        document.getElementById('welcomeBtn').innerHTML = '';
-
+        //  document.body.webkitRequestFullscreen();
         /* Stream it to video element */
         navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
             video.srcObject = stream;
-            document.getElementById('welcomeBtn').style.display = 'block';
-            document.getElementById('welcomeBtn').innerHTML = 'Go do stuff!';
 
-            document.getElementById('video').removeEventListener('click', lol);
-
-            document.getElementById('welcomeBtn').addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                document.getElementById('welcomeBtn').innerHTML = 'test';
-            });
         });
-    });
 </script>
 </body>
 </html>
